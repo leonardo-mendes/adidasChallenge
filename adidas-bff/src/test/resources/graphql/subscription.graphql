@@ -1,0 +1,10 @@
+query Subscription($id: Int!){
+    subscription(id: $id){
+        id
+        gender
+        firstName
+        email
+        dateOfBirth
+        consentSubscribe
+    }
+}

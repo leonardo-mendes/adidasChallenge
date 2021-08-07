@@ -1,0 +1,26 @@
+type EmailSubscription {
+    id: Int!,
+    email: String!,
+    firstName: String,
+    gender: String,
+    dateOfBirth: String!
+    consentSubscribe: Boolean!
+}
+
+input EmailSubscriptionInput {
+    email: String!,
+    firstName: String,
+    gender: String,
+    dateOfBirth: String!
+    consentSubscribe: Boolean!
+}
+
+extend type Query {
+    subscription(id: Int!): EmailSubscription
+    subscriptions:[EmailSubscription]!
+}
+
+extend type Mutation {
+    subscribe(subscription: EmailSubscriptionInput!): EmailSubscription!
+    unsubscribe(id: Int!): Boolean
+}

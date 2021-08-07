@@ -1,0 +1,9 @@
+mutation Subscribe($subscription: EmailSubscriptionInput!){
+    subscribe(subscription: $subscription){
+        id
+        firstName
+        gender
+        dateOfBirth
+        consentSubscribe
+    }
+}

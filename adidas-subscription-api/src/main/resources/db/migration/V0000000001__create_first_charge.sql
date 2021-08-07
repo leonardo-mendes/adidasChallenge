@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS `subscription`
+(
+    `id`
+        INT
+        NOT
+            NULL
+        AUTO_INCREMENT
+        PRIMARY
+            KEY,
+    `email`
+        VARCHAR,
+    `first_name`
+        VARCHAR,
+    `gender`
+        VARCHAR,
+    `date_of_birth`
+        VARCHAR,
+    `consent_subscribe`
+        BOOLEAN,
+    `executed`
+        BOOLEAN,
+    `created_at`
+        LONG
+);

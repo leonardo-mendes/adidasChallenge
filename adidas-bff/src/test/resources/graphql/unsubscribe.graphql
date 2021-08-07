@@ -1,0 +1,3 @@
+mutation Unsubscribe($id: Int!){
+    unsubscribe(id: $id)
+}

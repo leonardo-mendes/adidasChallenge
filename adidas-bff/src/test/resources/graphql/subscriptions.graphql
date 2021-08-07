@@ -1,0 +1,10 @@
+query Subscriptions{
+    subscriptions{
+        id
+        gender
+        firstName
+        email
+        dateOfBirth
+        consentSubscribe
+    }
+}
