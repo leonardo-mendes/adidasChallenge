@@ -5,13 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.adidas.subscription.resource.request.SubscriptionRequest;
 import com.adidas.subscription.service.impl.SubscriptionServiceImpl;
+import com.adidas.subscription.util.MockData;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class SubscriptionServiceTest {
+class SubscriptionServiceTest extends MockData {
 
     @InjectMocks SubscriptionServiceImpl subscriptionService;
 
@@ -25,15 +26,5 @@ class SubscriptionServiceTest {
         SubscriptionRequest request = buildSubscriptionRequest();
         request.setEmail("failed@test.com");
         assertFalse(subscriptionService.sendEmail(request));
-    }
-
-    private SubscriptionRequest buildSubscriptionRequest() {
-        return SubscriptionRequest.builder()
-                .email("test@test.com")
-                .firstName("test")
-                .gender("male")
-                .dateOfBirth("0000-00-00 00:00:00")
-                .consentSubscribe(Boolean.TRUE)
-                .build();
     }
 }

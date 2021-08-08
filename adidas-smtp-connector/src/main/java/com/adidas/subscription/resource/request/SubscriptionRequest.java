@@ -1,5 +1,6 @@
 package com.adidas.subscription.resource.request;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SubscriptionRequest {
 
-    @NotBlank(message = "0000000000001")
+    @Email(message = "0000000000002")
     private String email;
 
     private String firstName;

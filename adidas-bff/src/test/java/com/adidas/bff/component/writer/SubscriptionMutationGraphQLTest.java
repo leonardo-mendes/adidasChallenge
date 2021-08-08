@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Profile;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Slf4j
 @Import(FeignTestConfiguration.class)
 @SpringBootTest(
         classes = {AdidasBffApplication.class},

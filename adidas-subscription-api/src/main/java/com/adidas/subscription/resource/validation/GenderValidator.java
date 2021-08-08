@@ -1,13 +1,12 @@
 package com.adidas.subscription.resource.validation;
 
-import com.adidas.subscription.resource.util.Gender;
-
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-import java.util.Arrays;
-
 import static java.lang.Boolean.TRUE;
 import static java.util.Optional.ofNullable;
+
+import com.adidas.subscription.resource.util.Gender;
+import java.util.Arrays;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class GenderValidator implements ConstraintValidator<GenderValue, String> {
 

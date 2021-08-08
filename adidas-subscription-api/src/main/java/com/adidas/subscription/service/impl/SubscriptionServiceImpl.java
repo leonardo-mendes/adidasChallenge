@@ -43,6 +43,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Override
     public void delete(Integer id) {
+        this.findById(id);
         subscriptionRepository.deleteById(id);
     }
 

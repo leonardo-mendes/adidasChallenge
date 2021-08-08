@@ -1,7 +1,6 @@
 package com.adidas.subscription.unit;
 
 import static java.lang.Boolean.TRUE;
-import static java.lang.System.currentTimeMillis;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,12 +12,11 @@ import com.adidas.subscription.domain.Subscription;
 import com.adidas.subscription.error.exceptions.NotFoundException;
 import com.adidas.subscription.integration.SmtpConnectorIntegrationClient;
 import com.adidas.subscription.repository.SubscriptionRepository;
-import com.adidas.subscription.resource.request.SubscriptionRequest;
 import com.adidas.subscription.resource.response.SubscriptionResponse;
 import com.adidas.subscription.service.impl.SubscriptionServiceImpl;
-import java.util.List;
-
+import com.adidas.subscription.util.MockData;
 import feign.FeignException;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -26,7 +24,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class SubscriptionServiceTest {
+class SubscriptionServiceTest extends MockData {
 
     @Mock SubscriptionRepository subscriptionRepository;
 
@@ -55,9 +53,18 @@ class SubscriptionServiceTest {
 
     @Test
     void should_delete_subscription() {
+        when(subscriptionRepository.findById(anyInt())).thenReturn(of(buildSubscription()));
         doNothing().when(subscriptionRepository).deleteById(anyInt());
         assertDoesNotThrow(() -> subscriptionService.delete(1));
         verify(subscriptionRepository).deleteById(anyInt());
+    }
+
+    @Test
+    void should_not_delete_subscription_with_invalid_id() {
+        when(subscriptionRepository.findById(anyInt())).thenReturn(empty());
+        assertThrows(NotFoundException.class, () -> subscriptionService.delete(1));
+        verify(subscriptionRepository).findById(anyInt());
+        verify(subscriptionRepository, times(0)).deleteById(anyInt());
     }
 
     @Test
@@ -82,27 +89,5 @@ class SubscriptionServiceTest {
         assertNotNull(response);
         assertEquals(1, response.size());
         verify(subscriptionRepository).findAll();
-    }
-
-    private Subscription buildSubscription() {
-        return Subscription.builder()
-                .id(123)
-                .email("test@test.com")
-                .firstName("test")
-                .gender("male")
-                .dateOfBirth("0000-00-00 00:00:00")
-                .consentSubscribe(TRUE)
-                .createdAt(currentTimeMillis())
-                .build();
-    }
-
-    private SubscriptionRequest buildSubscriptionRequest() {
-        return SubscriptionRequest.builder()
-                .email("test@test.com")
-                .firstName("test")
-                .gender("male")
-                .dateOfBirth("0000-00-00 00:00:00")
-                .consentSubscribe(TRUE)
-                .build();
     }
 }

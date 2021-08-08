@@ -1,6 +1,6 @@
 package com.adidas.subscription.resource;
 
-import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.OK;
 
 import com.adidas.subscription.resource.request.SubscriptionRequest;
 import com.adidas.subscription.service.SubscriptionService;
@@ -16,7 +16,7 @@ public class SubscriptionResource {
     private final SubscriptionService subscriptionService;
 
     @PostMapping
-    @ResponseStatus(code = CREATED)
+    @ResponseStatus(code = OK)
     Boolean sendEmail(@Valid @RequestBody SubscriptionRequest request) {
         return subscriptionService.sendEmail(request);
     }
