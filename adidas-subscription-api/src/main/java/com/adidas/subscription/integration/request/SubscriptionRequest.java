@@ -25,5 +25,4 @@ public class SubscriptionRequest {
         this.dateOfBirth = subscription.getDateOfBirth();
         this.consentSubscribe = subscription.getConsentSubscribe();
     }
-
 }

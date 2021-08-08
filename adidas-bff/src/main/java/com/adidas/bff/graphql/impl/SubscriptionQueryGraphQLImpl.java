@@ -4,10 +4,12 @@ import com.adidas.bff.graphql.SubscriptionQueryGraphQL;
 import com.adidas.bff.model.EmailSubscription;
 import com.adidas.bff.service.EmailSubscriptionReader;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class SubscriptionQueryGraphQLImpl implements SubscriptionQueryGraphQL {

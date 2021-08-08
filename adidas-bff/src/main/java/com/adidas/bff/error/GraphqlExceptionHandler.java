@@ -1,6 +1,7 @@
 package com.adidas.bff.error;
 
 import feign.FeignException;
+import feign.RetryableException;
 import graphql.GraphQLException;
 import graphql.kickstart.spring.error.ThrowableGraphQLError;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.context.NoSuchMessageException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.net.UnknownHostException;
 import java.util.Locale;
 
 @Component
@@ -40,7 +42,6 @@ public class GraphqlExceptionHandler {
     public ThrowableGraphQLError handle(FeignException e) {
         return new ThrowableGraphQLError(e, e.getMessage());
     }
-
 
     private String toMessageError(String code) {
         String message;

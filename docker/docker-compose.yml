@@ -1,0 +1,40 @@
+version: '3'
+
+networks:
+  srm:
+    driver: bridge
+    driver_opts:
+        com.docker.network.enable_ipv4: "true"
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.32.0.0/16
+
+services:
+
+  adidas-bff:
+    image: adidas-bff:0.0.1-SNAPSHOT
+    container_name: adidas-bff
+    networks:
+      srm:
+        ipv4_address: 172.32.0.101
+    expose:
+      - 9595
+
+  adidas-smtp-connector:
+    image: adidas-smtp-connector:0.0.1-SNAPSHOT
+    container_name: adidas-smtp-connector
+    networks:
+      srm:
+        ipv4_address: 172.32.0.102
+    expose:
+      - 9090
+
+  adidas-subscription-api:
+    image: adidas-subscription-api:0.0.1-SNAPSHOT
+    container_name: adidas-subscription-api
+    networks:
+      srm:
+        ipv4_address: 172.32.0.103
+    expose:
+      - 8989

@@ -1,13 +1,12 @@
 package com.adidas.subscription.domain;
 
 import com.adidas.subscription.resource.response.SubscriptionResponse;
+import java.io.Serializable;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Data

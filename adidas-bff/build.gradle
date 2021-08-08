@@ -10,6 +10,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'com.palantir.docker' version '0.22.1'
 }
 
 group = 'com.adidas'
@@ -31,8 +32,8 @@ dependencies {
 
 	implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0'
 	implementation 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.0.0'
-	implementation 'com.graphql-java-kickstart:voyager-spring-boot-starter:11.0.0'
-	implementation("com.zhokhov.graphql:graphql-datetime-spring-boot-starter:4.0.0")
+
+	runtimeOnly 'com.graphql-java-kickstart:altair-spring-boot-starter:11.0.0'
 
 	compileOnly "org.projectlombok:lombok"
 	annotationProcessor "org.projectlombok:lombok"
@@ -55,3 +56,10 @@ dependencyManagement {
 test {
 	useJUnitPlatform()
 }
+
+docker {
+	name "${project.name}:${project.version}"
+	files "$buildDir/libs/${project.name}-${version}.jar"
+	buildArgs([JAR_FILE: "${project.name}-${version}.jar"])
+}
+

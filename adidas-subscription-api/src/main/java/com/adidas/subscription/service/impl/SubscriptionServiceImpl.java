@@ -1,5 +1,7 @@
 package com.adidas.subscription.service.impl;
 
+import static java.lang.Boolean.FALSE;
+
 import com.adidas.subscription.domain.Subscription;
 import com.adidas.subscription.error.exceptions.NotFoundException;
 import com.adidas.subscription.integration.SmtpConnectorIntegrationClient;
@@ -8,14 +10,11 @@ import com.adidas.subscription.resource.request.SubscriptionRequest;
 import com.adidas.subscription.resource.response.SubscriptionResponse;
 import com.adidas.subscription.service.SubscriptionService;
 import feign.FeignException;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static java.lang.Boolean.FALSE;
 
 @Slf4j
 @Service
@@ -34,7 +33,9 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     private Boolean retrieveEmailResult(Subscription subscription) {
         try {
-            return connectorIntegration.sendEmail(new com.adidas.subscription.integration.request.SubscriptionRequest(subscription));
+            return connectorIntegration.sendEmail(
+                    new com.adidas.subscription.integration.request.SubscriptionRequest(
+                            subscription));
         } catch (FeignException ex) {
             return FALSE;
         }

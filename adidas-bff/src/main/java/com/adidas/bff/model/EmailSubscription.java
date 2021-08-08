@@ -24,6 +24,7 @@ public class EmailSubscription implements Serializable {
         return SubscriptionRequest.builder()
                 .firstName(this.firstName)
                 .email(this.email)
+                .gender(this.gender)
                 .dateOfBirth(this.dateOfBirth)
                 .consentSubscribe(this.consentSubscribe)
                 .build();

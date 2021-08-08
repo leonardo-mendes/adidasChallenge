@@ -1,5 +1,6 @@
 package com.adidas.subscription.unit;
 
+import static java.lang.Boolean.TRUE;
 import static java.lang.System.currentTimeMillis;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
@@ -10,11 +11,14 @@ import static org.mockito.Mockito.*;
 
 import com.adidas.subscription.domain.Subscription;
 import com.adidas.subscription.error.exceptions.NotFoundException;
+import com.adidas.subscription.integration.SmtpConnectorIntegrationClient;
 import com.adidas.subscription.repository.SubscriptionRepository;
 import com.adidas.subscription.resource.request.SubscriptionRequest;
 import com.adidas.subscription.resource.response.SubscriptionResponse;
 import com.adidas.subscription.service.impl.SubscriptionServiceImpl;
 import java.util.List;
+
+import feign.FeignException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -26,14 +30,27 @@ class SubscriptionServiceTest {
 
     @Mock SubscriptionRepository subscriptionRepository;
 
+    @Mock SmtpConnectorIntegrationClient integrationClient;
+
     @InjectMocks SubscriptionServiceImpl subscriptionService;
 
     @Test
     void should_create_subscription() {
         when(subscriptionRepository.save(any(Subscription.class))).thenReturn(buildSubscription());
+        when(integrationClient.sendEmail(any())).thenReturn(TRUE);
         SubscriptionResponse response = subscriptionService.create(buildSubscriptionRequest());
         assertNotNull(response);
         verify(subscriptionRepository).save(any(Subscription.class));
+        verify(integrationClient).sendEmail(any());
+    }
+
+    @Test
+    void should_create_subscription_and_not_execute_subscription() {
+        when(subscriptionRepository.save(any(Subscription.class))).thenReturn(buildSubscription());
+        when(integrationClient.sendEmail(any())).thenThrow(FeignException.class);
+        assertDoesNotThrow(() -> subscriptionService.create(buildSubscriptionRequest()));
+        verify(subscriptionRepository).save(any(Subscription.class));
+        verify(integrationClient).sendEmail(any());
     }
 
     @Test
@@ -74,7 +91,7 @@ class SubscriptionServiceTest {
                 .firstName("test")
                 .gender("male")
                 .dateOfBirth("0000-00-00 00:00:00")
-                .consentSubscribe(Boolean.TRUE)
+                .consentSubscribe(TRUE)
                 .createdAt(currentTimeMillis())
                 .build();
     }
@@ -85,7 +102,7 @@ class SubscriptionServiceTest {
                 .firstName("test")
                 .gender("male")
                 .dateOfBirth("0000-00-00 00:00:00")
-                .consentSubscribe(Boolean.TRUE)
+                .consentSubscribe(TRUE)
                 .build();
     }
 }
