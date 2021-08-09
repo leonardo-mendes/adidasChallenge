@@ -34,7 +34,7 @@ Response Body
   "email": "string",
   "firstName": "string",
   "gender": "string",
-  "dateOfBirth": "string",
+  "dateOfBirth": long,
   "consentSubscribe": boolean,
   "executed": boolean,
   "createdAt": long

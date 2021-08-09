@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-
-import static java.lang.System.currentTimeMillis;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -17,7 +15,7 @@ public class EmailSubscription implements Serializable {
     private String email;
     private String firstName;
     private String gender;
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
     private Boolean consentSubscribe;
 
     public SubscriptionRequest buildRequest() {
@@ -25,7 +23,7 @@ public class EmailSubscription implements Serializable {
                 .firstName(this.firstName)
                 .email(this.email)
                 .gender(this.gender)
-                .dateOfBirth(this.dateOfBirth)
+                .dateOfBirth(this.dateOfBirth.toEpochDay())
                 .consentSubscribe(this.consentSubscribe)
                 .build();
     }

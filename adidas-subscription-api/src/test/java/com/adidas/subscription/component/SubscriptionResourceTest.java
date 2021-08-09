@@ -56,7 +56,7 @@ class SubscriptionResourceTest extends MockData {
                 .andExpect(jsonPath("$.firstName", is(request.getFirstName())))
                 .andExpect(jsonPath("$.email", is(request.getEmail())))
                 .andExpect(jsonPath("$.gender", is(request.getGender())))
-                .andExpect(jsonPath("$.dateOfBirth", is(request.getDateOfBirth())))
+                .andExpect(jsonPath("$.dateOfBirth", notNullValue()))
                 .andExpect(jsonPath("$.consentSubscribe", is(request.getConsentSubscribe())))
                 .andExpect(jsonPath("$.executed", is(TRUE)))
                 .andExpect(jsonPath("$.createdAt", notNullValue()));

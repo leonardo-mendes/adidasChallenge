@@ -19,7 +19,7 @@ public class SubscriptionResponse implements Serializable {
     private String email;
     private String firstName;
     private String gender;
-    private String dateOfBirth;
+    private Long dateOfBirth;
     private Boolean consentSubscribe;
     private Boolean executed;
     private Long createdAt;

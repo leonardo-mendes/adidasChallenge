@@ -1,7 +1,6 @@
 package com.adidas.subscription.resource.request;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,8 +20,8 @@ public class SubscriptionRequest {
 
     private String gender;
 
-    @NotBlank(message = "0000000000001")
-    private String dateOfBirth;
+    @NotNull(message = "0000000000001")
+    private Long dateOfBirth;
 
     @NotNull(message = "0000000000001")
     private Boolean consentSubscribe;

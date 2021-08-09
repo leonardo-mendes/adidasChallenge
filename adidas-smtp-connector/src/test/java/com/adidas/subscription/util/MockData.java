@@ -9,7 +9,7 @@ public class MockData {
                 .email("test@test.com")
                 .firstName("test")
                 .gender("male")
-                .dateOfBirth("0000-00-00 00:00:00")
+                .dateOfBirth(System.currentTimeMillis())
                 .consentSubscribe(Boolean.TRUE)
                 .build();
     }

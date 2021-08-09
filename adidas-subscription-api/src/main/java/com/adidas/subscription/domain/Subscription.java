@@ -28,7 +28,7 @@ public class Subscription implements Serializable {
     private String gender;
 
     @Column(name = "date_of_birth")
-    private String dateOfBirth;
+    private Long dateOfBirth;
 
     @Column(name = "consent_subscribe")
     private Boolean consentSubscribe;

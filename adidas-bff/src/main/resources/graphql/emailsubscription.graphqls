@@ -1,9 +1,11 @@
+scalar LocalDate
+
 type EmailSubscription {
     id: Int!,
     email: String!,
     firstName: String,
     gender: String,
-    dateOfBirth: String!
+    dateOfBirth: LocalDate!
     consentSubscribe: Boolean!
 }
 
@@ -11,7 +13,7 @@ input EmailSubscriptionInput {
     email: String!,
     firstName: String,
     gender: String,
-    dateOfBirth: String!
+    dateOfBirth: LocalDate!
     consentSubscribe: Boolean!
 }
 

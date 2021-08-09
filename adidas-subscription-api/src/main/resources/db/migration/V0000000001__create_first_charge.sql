@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `subscription`
     `gender`
         VARCHAR,
     `date_of_birth`
-        VARCHAR,
+        LONG,
     `consent_subscribe`
         BOOLEAN,
     `executed`

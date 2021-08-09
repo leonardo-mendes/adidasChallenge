@@ -5,7 +5,6 @@ import static java.lang.System.currentTimeMillis;
 import com.adidas.subscription.domain.Subscription;
 import com.adidas.subscription.resource.validation.GenderValue;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,8 +25,8 @@ public class SubscriptionRequest {
     @GenderValue(message = "0000000000004")
     private String gender;
 
-    @NotBlank(message = "0000000000002")
-    private String dateOfBirth;
+    @NotNull(message = "0000000000002")
+    private Long dateOfBirth;
 
     @NotNull(message = "0000000000002")
     private Boolean consentSubscribe;

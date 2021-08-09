@@ -6,9 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.ZoneId;
+import java.time.LocalDate;
 
 import static java.time.Instant.ofEpochMilli;
+import static java.time.ZoneId.systemDefault;
 
 @Data
 @Builder
@@ -20,7 +21,7 @@ public class SubscriptionResponse {
     private String email;
     private String firstName;
     private String gender;
-    private String dateOfBirth;
+    private Long dateOfBirth;
     private Boolean consentSubscribe;
 
     public EmailSubscription of() {
@@ -29,7 +30,7 @@ public class SubscriptionResponse {
                 .firstName(this.firstName)
                 .gender(this.gender)
                 .email(this.email)
-                .dateOfBirth(this.dateOfBirth)
+                .dateOfBirth(ofEpochMilli(this.dateOfBirth).atZone(systemDefault()).toLocalDate())
                 .consentSubscribe(this.consentSubscribe)
                 .build();
     }

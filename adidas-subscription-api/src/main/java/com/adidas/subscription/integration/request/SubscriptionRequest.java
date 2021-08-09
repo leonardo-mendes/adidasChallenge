@@ -15,7 +15,7 @@ public class SubscriptionRequest {
     private String email;
     private String firstName;
     private String gender;
-    private String dateOfBirth;
+    private Long dateOfBirth;
     private Boolean consentSubscribe;
 
     public SubscriptionRequest(Subscription subscription) {

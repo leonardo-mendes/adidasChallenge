@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
+
 import static java.lang.Boolean.TRUE;
 
 public class BaseData {
@@ -20,7 +22,7 @@ public class BaseData {
                     .firstName("test")
                     .consentSubscribe(TRUE)
                     .gender("male")
-                    .dateOfBirth("2021-00-00 00:00:00")
+                    .dateOfBirth(LocalDate.now())
                     .email("test@teste.com")
                     .build();
 }

@@ -7,6 +7,7 @@ import com.adidas.bff.integration.response.SubscriptionResponse;
 import java.util.List;
 
 import static java.lang.Boolean.TRUE;
+import static java.lang.System.currentTimeMillis;
 
 public class SubscriptionIntegrationClientMock implements SubscriptionIntegrationClient {
 
@@ -35,7 +36,7 @@ public class SubscriptionIntegrationClientMock implements SubscriptionIntegratio
                 .email("test@test.com")
                 .firstName("Test")
                 .gender("male")
-                .dateOfBirth("2021-00-00 00:00:00")
+                .dateOfBirth(currentTimeMillis())
                 .consentSubscribe(TRUE)
                 .build();
     }

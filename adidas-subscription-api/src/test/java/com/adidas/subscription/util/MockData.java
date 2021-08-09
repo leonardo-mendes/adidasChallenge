@@ -14,7 +14,7 @@ public class MockData {
                 .email("test@test.com")
                 .firstName("test")
                 .gender("male")
-                .dateOfBirth("0000-00-00 00:00:00")
+                .dateOfBirth(System.currentTimeMillis())
                 .consentSubscribe(TRUE)
                 .createdAt(currentTimeMillis())
                 .build();
@@ -25,7 +25,7 @@ public class MockData {
                 .email("test@test.com")
                 .firstName("test")
                 .gender("male")
-                .dateOfBirth("0000-00-00 00:00:00")
+                .dateOfBirth(System.currentTimeMillis())
                 .consentSubscribe(TRUE)
                 .build();
     }

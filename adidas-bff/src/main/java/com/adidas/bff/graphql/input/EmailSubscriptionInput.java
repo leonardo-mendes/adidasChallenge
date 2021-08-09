@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -13,7 +14,7 @@ public class EmailSubscriptionInput implements Serializable {
     private String email;
     private String firstName;
     private String gender;
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
     private Boolean consentSubscribe;
 
     public EmailSubscription buildDomain() {
