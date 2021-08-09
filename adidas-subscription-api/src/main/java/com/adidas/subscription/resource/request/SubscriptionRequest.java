@@ -5,6 +5,7 @@ import static java.lang.System.currentTimeMillis;
 import com.adidas.subscription.domain.Subscription;
 import com.adidas.subscription.resource.validation.GenderValue;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 public class SubscriptionRequest {
 
     @Email(message = "0000000000003")
+    @NotBlank(message = "0000000000002")
     private String email;
 
     private String firstName;
