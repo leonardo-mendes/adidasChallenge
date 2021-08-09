@@ -19,8 +19,14 @@ sh run.sh
 docker ps
 ```
 
+### Remove Images
+
+```
+sh removeImages.sh
+```
+
 ### Applications
 
-* Adidas BFF - https://github.com/leonardo-mendes/adidasChallenge/tree/master/adidas-bff
-* Adidas Subscription API - https://github.com/leonardo-mendes/adidasChallenge/tree/master/adidas-subscription-api
-* Adidas SMTP Connector - https://github.com/leonardo-mendes/adidasChallenge/tree/master/adidas-smtp-connector
+* Adidas BFF - https://bit.ly/3lODdJ1
+* Adidas Subscription API - https://bit.ly/3sacp7m
+* Adidas SMTP Connector - https://bit.ly/3An5OsR
