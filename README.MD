@@ -19,13 +19,13 @@ sh run.sh
 docker ps
 ```
 
-### Removing Images
+### Cleaning the local environment
 
 ```
-sh removeImages.sh
+sh cleanEnvironment.sh
 ```
 
-### Applications
+### Using the applications
 
 * Adidas BFF - https://bit.ly/3lODdJ1
 * Adidas Subscription API - https://bit.ly/3sacp7m
