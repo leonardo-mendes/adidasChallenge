@@ -13,13 +13,13 @@ Developed challenge with microservice approach using Java + SpringBoot Stack.
 sh run.sh
 ```
 
-### Check the containers
+### Checking the containers
 
 ```
 docker ps
 ```
 
-### Remove Images
+### Removing Images
 
 ```
 sh removeImages.sh
