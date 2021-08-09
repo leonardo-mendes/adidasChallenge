@@ -15,7 +15,7 @@ import java.util.Optional;
 public class AdidasBffApplication {
 
     private static final String ACCESS_URLS_MESSAGE_LOG =
-            "\n\n Access URLs:\n----------------------------------------------------------\n\tExternal:\thttp://{}:{}{}/graphql \n\tProfiles:\t{}\n----------------------------------------------------------\n";
+            "\n\n Access URLs:\n----------------------------------------------------------\n\tExternal:\thttp://{}:{}{}/altair \n\tProfiles:\t{}\n----------------------------------------------------------\n";
 
     public static void main(final String[] args) {
         try {

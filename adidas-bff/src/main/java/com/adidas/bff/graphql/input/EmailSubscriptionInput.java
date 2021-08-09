@@ -19,6 +19,7 @@ public class EmailSubscriptionInput implements Serializable {
     public EmailSubscription buildDomain() {
         return EmailSubscription.builder()
                 .firstName(this.firstName)
+                .gender(this.gender)
                 .email(this.email)
                 .dateOfBirth(this.dateOfBirth)
                 .consentSubscribe(this.consentSubscribe)

@@ -24,6 +24,6 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Adidas Subscription").build();
+        return new ApiInfoBuilder().title("Adidas SMTP Connector").build();
     }
 }

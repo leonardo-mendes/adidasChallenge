@@ -36,7 +36,7 @@ public class SubscriptionRequest {
         return Subscription.builder()
                 .email(this.email)
                 .firstName(this.firstName)
-                .gender(this.gender)
+                .gender(this.gender.toLowerCase())
                 .dateOfBirth(this.dateOfBirth)
                 .createdAt(currentTimeMillis())
                 .consentSubscribe(this.consentSubscribe)
