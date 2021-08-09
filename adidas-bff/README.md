@@ -17,7 +17,7 @@ sh run.sh
 
 * [Altair GraphQL UI](http://127.0.1.1:9595/altair) - Documentation
 
-####Subscribe
+#### Subscribe
 ```
 mutation{
   subscribe(subscription: {
@@ -37,7 +37,7 @@ mutation{
 }
 ```
 
-####Unsubscribe
+#### Unsubscribe
 ```
 mutation{
   unsubscribe(id: integer)
