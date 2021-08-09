@@ -1,3 +1,4 @@
+
 # Adidas SMTP Connector
 It's an API responsible for mocking the sending of email to customers.
 
@@ -8,22 +9,20 @@ It's an API responsible for mocking the sending of email to customers.
 
 
 ### Running Locally
-
-```
-sh run.sh
-```
+> sh run.sh
 
 ### Local Environment
 
 * [Swagger]( http://127.0.1.1:9090/swagger-ui.html)
 
+Request Body
 ```
 {
   "consentSubscribe": true (Mandatory),
-  "dateOfBirth": "string" (Mandatory),
+  "dateOfBirth": long (Mandatory - Milliseconds),
   "email": "string" (Mandatory),
   "firstName": "string",
-  "gender": "string (It is not mandatory, possible values Male, Female and Other)"
+  "gender": "string" (Not mandatory, possible values Male, Female and Other)
 }
 ```
 

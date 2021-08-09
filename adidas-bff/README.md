@@ -1,21 +1,17 @@
+
 # Adidas BFF
 It's an BFF API responsible for handling customers subscriptions.
-
 
 ### Docker Environment
 
 * [Altair GraphQL UI](http://172.32.0.101:9595/altair) : API documentation.
 
-
 ### Running Locally
-
-```
-sh run.sh
-```
+> sh run.sh
 
 ### Local Environment
 
-* [Altair GraphQL UI](http://127.0.1.1:9595/altair) - Documentation
+* [Altair GraphQL UI](http://127.0.1.1:9595/altair) - Local Documentation
 
 #### Subscribe
 ```
@@ -24,7 +20,7 @@ mutation{
     firstName: "string"
     email: "string"
     gender: "string"
-    dateOfBirth: "string"
+    dateOfBirth: localdate
     consentSubscribe: true
   }){
     id
@@ -44,7 +40,7 @@ mutation{
 }
 ```
 
-#### Retrieve Subscriptions by Id
+#### Retrieve Subscription by Id
 ```
 query{
   subscription(id: integer){
@@ -70,14 +66,5 @@ query{
 }
 ```
 
-*Errors*
-```
-Sometimes, when running for the first time, it is necessary to clear the Altair variables:
-
-- Click Set Variables
-- Remove undefined
-```
-
-
 ### Tech Stack
-[Gradle](https://gradle.org/) - [Spring Boot](https://projects.spring.io/spring-boot/) - [Java](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html) - [Junit](http://junit.org/) - [Mockito](http://site.mockito.org/) - [GraphQL](https://github.com/graphql-java-kickstart/graphql-spring-boot)
+[Gradle](https://gradle.org/) - [Spring Boot](https://projects.spring.io/spring-boot/) - [Java](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html) - [Junit](http://junit.org/) - [Mockito](http://site.mockito.org/) - [GraphQL](https://github.com/graphql-java-kickstart/graphql-spring-boot) - [Altair GraphQL UI](https://altair.sirmuel.design/)

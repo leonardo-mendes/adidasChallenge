@@ -1,3 +1,4 @@
+
 # Adidas Subscription API
 It's an API responsible for handling customers subscriptions.
 
@@ -8,10 +9,7 @@ It's an API responsible for handling customers subscriptions.
 
 
 ### Running Locally
-
-```
-sh run.sh
-```
+> sh run.sh
 
 ### Local Environment
 
@@ -21,10 +19,10 @@ Request Body
 ```
 {
   "consentSubscribe": true (Mandatory),
-  "dateOfBirth": "string" (Mandatory - Timestamp),
+  "dateOfBirth": long (Mandatory - Milliseconds),
   "email": "string" (Mandatory),
   "firstName": "string",
-  "gender": "string (It is not mandatory, possible values Male, Female and Other)"
+  "gender": "string" (Not mandatory, possible values ​​Male, Female and Other)
 }
 ```
 Response Body
