@@ -5,7 +5,7 @@ Developed challenge with microservice approach using Java + Spring Boot Stack.
 ### Architecture
 <br>
 
-![image info](./images/arch.png)
+![Architecture](./images/arch.png)
 
 ### Necessary tools
 * Java 13 or +.
@@ -31,3 +31,7 @@ Developed challenge with microservice approach using Java + Spring Boot Stack.
 * Adidas Subscription API - https://bit.ly/3sacp7m
 * Adidas SMTP Connector - https://bit.ly/3An5OsR
 * Docker-Compose - https://bit.ly/3fJqPpJ
+
+## CI/CD Sketch
+
+![CI/CD](./images/cicd.png)
